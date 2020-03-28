@@ -10,7 +10,7 @@
     },
     "dependencies": {
         "discord-rpc": "^3.1.0",
-        "register-scheme": "0.0.2"
+        "minimist": ">=1.2.2"
     },
     "scripts": {
         "build": "electron-builder --mac --windows --linux",
