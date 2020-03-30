@@ -1,6 +1,9 @@
-const { app, BrowserWindow,screen } = require("electron");
+const { app, BrowserWindow, screen, Menu, shell } = require("electron");
+const { autoUpdater } = require("electron-updater")
 const fs = require("fs");
+const template = require("./menu");
 const DiscordRPC = require("discord-rpc");
+
 var window;
 const clientId = "693476070229409874";
 
@@ -15,7 +18,9 @@ var activity = {
 };
 
 function createWindow() {
-      const { width, height } = screen.getPrimaryDisplay().workAreaSize
+    autoUpdater.checkForUpdatesAndNotify()
+
+    const { width, height } = screen.getPrimaryDisplay().workAreaSize;
 
     window = new BrowserWindow({
         width,
@@ -26,6 +31,8 @@ function createWindow() {
         }
     });
 
+    const menu = Menu.buildFromTemplate(template(app, window));
+    Menu.setApplicationMenu(menu);
     window.loadURL("https://hordes.io/login", {
         userAgent:
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36"
@@ -37,29 +44,40 @@ function createWindow() {
         });
     });
 
-    window.webContents.on("will-navigate", function(e, u) {
+    window.webContents.on("did-start-navigation", function(e, u) {
         if (u == "https://hordes.io/play") {
             activity.state = "Playing";
             activity.details = "Guardstone";
             activity.startTimestamp = Date.now();
-        }
-        else if (u=="https://hordes.io/"){
+        } else if (u == "https://hordes.io/") {
             activity.state = "Idle";
             activity.details = "In Menu";
+            activity.startTimestamp = Date.now();
+        } else if (u == "https://hordes.io/worldeditor") {
+            activity.state = "Making Maps";
+            activity.details = "World Editor";
             activity.startTimestamp = Date.now();
         }
         if (rpcReady) {
             setActivity();
         }
     });
+    window.webContents.on("new-window", function(e, url) {
+        e.preventDefault();
+        shell.openExternal(url);
+    });
+
+    window.on("closed", () => {
+        window = null;
+    });
 }
 
 app.on("ready", createWindow);
 
 app.on("window-all-closed", () => {
-    if (process.platform !== "darwin") {
-        app.quit();
-    }
+    // if (process.platform !== "darwin") {
+    app.quit();
+    // }
 });
 app.on("activate", () => {
     if (window === null) {
