@@ -1,17 +1,16 @@
 const { ipcRenderer } = require("electron");
 
 ipcRenderer.send("requestPlayerData");
-var state = {state:"ok"}
-ipcRenderer.on("error",(e,m)=>{
+var state = { state: "ok" }
+ipcRenderer.on("error", (e, m) => {
     switch (m) {
         case "loggedOut":
             var btn = document.getElementById("play")
             btn.innerHTML = "Login"
-            btn.addEventListener("click",()=>{
+            btn.addEventListener("click", () => {
                 ipcRenderer.send("loginRequest")
             })
             break
-
     }
 })
 ipcRenderer.on("players", (e, m) => {
@@ -38,12 +37,17 @@ ipcRenderer.on("players", (e, m) => {
                 e.classList.remove("active");
             });
             li.classList.add("active");
+            var btn = document.getElementById("play")
+            btn.addEventListener("click", () => {
+                ipcRenderer.send("joinRequest",e)
+            })
         });
         list.appendChild(li);
     });
 });
 
-ipcRenderer.on("joinConformation",(e,m)=>{
+ipcRenderer.on("joinConformation", (e, m) => {
     window.location.href = "https://hordes.io/play"
 })
+
 
