@@ -1,6 +1,6 @@
 {
     "name": "hordes-client",
-    "productName": "Hordes.io",
+    "productName": "Hordes",
     "description": "Hordes.io Desktop Client",
     "author": {
         "name": "zbot473",
@@ -12,6 +12,7 @@
         "electron": "^8.2.0",
         "electron-builder": "21.2.0",
         "electron-packager": "^14.2.1",
+        "electron-rebuild": "^1.10.1",
         "prettier": "^2.0.2"
     },
     "repository": {
@@ -21,7 +22,9 @@
     "dependencies": {
         "discord-rpc": "^3.1.0",
         "minimist": ">=1.2.5",
-        "electron-updater": "^4.2.5"
+        "electron-updater": "^4.2.5",
+        "keytar": "^5.4.0",
+        "node-fetch": "^2.6.0"
     },
     "scripts": {
         "build": "electron-builder -mwl",
@@ -30,7 +33,9 @@
     },
     "build": {
         "appId": "io.hordes.client",
-        "publish":["github"],
+        "publish": [
+            "github"
+        ],
         "mac": {
             "category": "public.app-category.role-playing-games"
         },

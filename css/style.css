@@ -1,0 +1,229 @@
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    padding-inline-start: 0;
+}
+
+.svg {
+    user-select: none;
+}
+
+#leftCol,
+#rightCol,
+#centerCol {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+#bg {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    display: block;
+    background: url("../images/background.jpg");
+    transform: scale(1.1);
+    background-color: black;
+    filter: blur(5px);
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    animation: backgroundAnim 5s ease;
+}
+
+#content {
+    position: fixed;
+    font-family: "Quicksand", sans-serif;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    animation: contentShow 1s 5s ease;
+    height: 100vh;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+}
+
+#playerList {
+    padding-left: 0;
+    margin-top: 200px;
+}
+
+#playerList > li {
+    list-style: none;
+    border: 2px solid white;
+    background: rgb(25, 32, 45);
+    background: linear-gradient(
+        90deg,
+        rgba(25, 32, 45, 0.5) 0%,
+        rgba(25, 32, 45, 0.2) 50%,
+        rgba(25, 32, 45, 0.5) 100%
+    );
+    width: 400px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 5px;
+    position: relative;
+    display: flex;
+    transition: 0.5s;
+}
+
+#playerList > li:hover,
+#playerList > li.active {
+    transform: scale(1.1);
+}
+
+.imageHolder {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: normal;
+    align-items: center;
+}
+
+.classImage {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.mainText {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18pt;
+}
+
+.factionImage {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 30pt;
+}
+
+.bottom {
+    width: 100%;
+    align-self: flex-end;
+    margin-top: auto;
+}
+
+.bigButton {
+    cursor: pointer;
+    width: 100%;
+    border-style: solid;
+    border-width: 3px;
+    background: rgb(25, 32, 45);
+    background: linear-gradient(
+        90deg,
+        rgba(25, 32, 45, 0.5) 0%,
+        rgba(25, 32, 45, 0.2) 50%,
+        rgba(25, 32, 45, 0.5) 100%
+    );
+    border-color: #a8a8a8 #a8a8a8 transparent #a8a8a8;
+    border-radius: 6px 6px 0 0;
+    border-bottom: none;
+    background-color: transparent;
+    font-family: "Quicksand", sans-serif;
+    color: #a8a8a8;
+    padding: 5px;
+    transition: .5s;
+    font-size: 50pt;
+}
+
+.bigButton:focus{
+    outline: 0;
+}
+
+.bigButton:hover{
+    color: white;
+
+    border-color: white white transparent white;
+    padding-bottom: 30px;
+
+}
+
+#logo {
+    transform: translate(-50%, calc(calc(-50% - 50vh) + 105px)) scale(0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    animation: logoAnim 5s ease;
+    animation-fill-mode: forwards;
+    z-index: 999;
+}
+
+#sword {
+    transform: translate(-50%, calc(calc(-50% - 50vh) + 95px)) scale(0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 999;
+    animation: swordAnim 4s 1s;
+    visibility: hidden;
+    animation-fill-mode: forwards;
+}
+
+@keyframes logoAnim {
+    0% {
+        transform: translate(-50%, -50%) scale(0.7);
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    60% {
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes swordAnim {
+    0% {
+        transform: translate(-50%, -300%);
+        animation-timing-function: ease-in;
+        visibility: visible;
+    }
+    7.5% {
+        transform: translate(-50%, -56%);
+        animation-timing-function: ease-in;
+    }
+    50% {
+        transform: translate(-50%, -56%);
+        animation-timing-function: ease;
+    }
+    100% {
+        visibility: visible;
+    }
+}
+
+@keyframes backgroundAnim {
+    0% {
+        filter: brightness(0) blur(5px);
+        transform: scale(1.1);
+    }
+    30% {
+        filter: brightness(0) blur(5px);
+        transform: scale(1.1);
+    }
+    100% {
+        filter: brightness(100%) blur(5px);
+        transform: scale(1.1);
+    }
+}
+@keyframes contentShow {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        visibility: visible;
+    }
+}
