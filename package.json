@@ -27,8 +27,8 @@
         "node-fetch": "^2.6.0"
     },
     "scripts": {
-        "build": "electron-builder -mwl",
-        "publish": "electron-builder -mwl -p always",
+        "build": "electron-builder",
+        "publish": "electron-builder -p always",
         "postinstall": "electron-builder install-app-deps",
         "start": "electron ."
     },
