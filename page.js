@@ -1,7 +1,7 @@
 const { ipcRenderer } = require("electron");
 
 ipcRenderer.send("requestPlayerData");
-var state = { state: "ok" }
+
 ipcRenderer.on("error", (e, m) => {
     switch (m) {
         case "loggedOut":
