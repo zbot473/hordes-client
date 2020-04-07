@@ -1,4 +1,4 @@
-const template = function(app, window) {
+const template = function (app, window) {
     let template = [
         {
             label: "Edit",
@@ -95,7 +95,6 @@ const template = function(app, window) {
                     accelerator: "CmdOrCtrl+,",
                     click() {
                         window.loadURL("https://hordes.io/account", {
-                            
                             userAgent:
                                 "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36"
                         });
@@ -127,7 +126,7 @@ const template = function(app, window) {
                 label: "Main Menu",
                 accelerator: "CmdOrCtrl+1",
                 click() {
-                    window.loadFile("index.html")
+                    window.loadFile("views/index.html");
                 }
             },
             {

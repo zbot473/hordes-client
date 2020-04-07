@@ -1,0 +1,439 @@
+.uimod-skill-tooltip {
+    width: 260px;
+    position: fixed;
+    display: none;
+}
+.uimod-skill-tooltip .description {
+    /* Mirrors color of normal tooltip description */
+    color: #5b858e;
+}
+.uimod-skill-tooltip .uimod-skill-tooltip-text {
+    color: white;
+}
+/* Custom chat context menu, invisible by default */
+.js-chat-context-menu {
+    display: none;
+}
+
+.js-chat-context-menu .name {
+    color: white;
+    padding: 2px 4px;
+}
+
+/* Allow names in chat to be clicked (textf1 = BL, textf0 = VG) */
+#chat .name,
+.textwhisper .textf1,
+.textwhisper .textf0 {
+    pointer-events: all !important;
+}
+/* Custom chat filter colors */
+.js-chat-gm {
+    color: #a6dcd5;
+}
+
+/* Class that hides chat lines */
+.js-line-hidden,
+.js-line-blocked {
+    display: none;
+}
+/* Custom chat tabs */
+.uimod-chat-tabs {
+    position: fixed;
+    margin-top: -22px;
+    left: 5px;
+    pointer-events: all;
+    color: #5b858e;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.uimod-chat-tabs > div {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    display: inline-block;
+    border: 1px black solid;
+    border-bottom: 0;
+    margin-right: 2px;
+    padding: 3px 5px;
+}
+
+.uimod-chat-tabs > div:not(.js-selected-tab):hover {
+    border-color: #aaa;
+}
+
+.uimod-chat-tabs > .js-selected-tab {
+    color: #fff;
+}
+
+/* Chat tab custom config */
+.uimod-chat-tab-config {
+    position: absolute;
+    z-index: 9999999;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border-radius: 3px;
+    text-align: center;
+    padding: 8px 12px 8px 6px;
+    width: 175px;
+    font-size: 14px;
+    border: 1px solid black;
+    display: none;
+}
+
+.uimod-chat-tab-config-grid {
+    grid-template-columns: 35% 65%;
+    display: grid;
+    grid-gap: 6px;
+    align-items: center;
+}
+
+.uimod-chat-tab-config h1 {
+    font-size: 16px;
+    margin-top: 0;
+}
+
+.uimod-chat-tab-config .btn,
+.uimod-chat-tab-config input {
+    font-size: 12px;
+}
+/* Lazy way to get tables to display side by side, given they share their container with various other elements */
+.uimod-clan-lastseen-table {
+    float: right;
+    width: 25%;
+    /* Make the last seen table look like its part of the main clan members table */
+    position: relative;
+    right: 1px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.uimod-clan-lastseen-table tr.js-offline-member {
+    opacity: 0.5;
+}
+
+.uimod-clan-members-table {
+    float: left;
+    width: 75%;
+}
+/* Allows windows and frames to be moved */
+.window,
+.partyframes,
+#ufplayer,
+#uftarget,
+#skillbar,
+.js-map {
+    position: relative;
+}
+
+/* Retaining the default party frame with so we can override the "style" property */
+.partyframes {
+    width: 200px;
+}
+
+/* All purpose hidden class */
+.js-hidden {
+    display: none;
+}
+/* Friends list CSS, similar to settings but supports 4 columns */
+.uimod-friends {
+    display: grid;
+    grid-template-columns: 2fr 1.1fr 1.5fr 0.33fr 3fr;
+    grid-gap: 8px;
+    align-items: center;
+    max-height: 390px;
+    margin: 0 20px;
+    overflow-y: auto;
+}
+
+/* Helps imitate normal UI window */
+.uimod-friends-list-helper.titleframe {
+    line-height: 1em;
+    display: flex;
+    align-items: start;
+    position: relative;
+    letter-spacing: 0.5px;
+    margin-top: 8px;
+}
+
+.uimod-friends-list-helper.titleicon {
+    margin: 3px;
+}
+
+.uimod-friends-list-helper.title {
+    width: 100%;
+    padding-left: 4px;
+    font-weight: bold;
+}
+
+.uimod-friends-intro {
+    width: 100%;
+    margin: 4px 0 14px;
+    text-align: center;
+    border-bottom: 2px solid #999;
+    padding-bottom: 6px;
+    font-weight: bold;
+    user-select: none;
+}
+.uimod-locked-slot {
+    pointer-events: all;
+    z-index: 10;
+    background: rgba(255, 0, 0, 0.4);
+    position: absolute;
+    width: 46px;
+    height: 46px;
+}
+.js-map-btns {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 999;
+    width: 100px;
+    height: 100px;
+    text-align: right;
+    display: none;
+    pointer-events: all;
+}
+
+.js-map-btns:hover {
+    display: block;
+}
+
+.js-map-btns button {
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 0 5px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 0;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* On hover of map, show opacity controls */
+.js-map:hover .js-map-btns {
+    display: block;
+}
+/* Mirror styles of other merchant inputs */
+.uidom-merchant-input {
+    margin: 4px 0;
+    align-self: center;
+}
+
+/* Add 225px column for new filters input */
+.uidom-merchant-with-filters .search {
+    grid-template-columns: 120px auto 50px auto 50px 225px 1fr auto auto;
+}
+.js-chat-resize {
+    resize: both;
+    overflow: auto;
+}
+.js-map {
+    /* This makes sure scroll bars don't appear when resizing the map */
+    overflow: hidden;
+}
+
+.js-map-resize:hover {
+    resize: both;
+    overflow: auto;
+    direction: rtl;
+}
+/* Screenshot Mod Warning CSS. Similar to the warning you get in chrome when entering full-screen since that's familiar and positioned to be below full-screen warning */
+.uimod-screenshot-warning {
+    margin: auto;
+    display: block;
+    text-align: center;
+    margin-top: 100px;
+    width: 250px;
+    padding: 13px;
+    color: #fff;
+    background: rgba(39, 41, 45, 0.74);
+}
+
+.uimod-screenshot-warning-container {
+    width: 100%;
+    position: absolute;
+}
+
+/* Applied to warning after a short delay to fadeout */
+.uimod-screenshot-warning-fadeout {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 1s, opacity 1s linear;
+}
+/* Allows last clicked window to appear above all other windows */
+.js-is-top {
+    z-index: 9998 !important;
+}
+
+.panel.context:not(.commandlist) {
+    z-index: 9999 !important;
+}
+
+/* The item icon being dragged in the inventory */
+.container.svelte-120o2pb {
+    z-index: 9999 !important;
+}
+.js-cooldown-num {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 40px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    pointer-events: none;
+}
+.container.uimod-xpmeter-1 {
+    z-index: 6;
+}
+
+.window.uimod-xpmeter-2 {
+    padding: 5px;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 30px 1fr;
+    grid-gap: 4px;
+    transform-origin: inherit;
+    min-width: fit-content;
+}
+
+.titleframe.uimod-xpmeter-2 {
+    line-height: 1em;
+    display: flex;
+    align-items: center;
+    position: relative;
+    letter-spacing: 0.5px;
+}
+
+.titleicon.uimod-xpmeter-2 {
+    margin: 3px;
+}
+
+.title.uimod-xpmeter-2 {
+    width: 100%;
+    padding-left: 4px;
+    font-weight: bold;
+}
+
+.slot.uimod-xpmeter-2 {
+    min-height: 0;
+}
+
+.wrapper.uimod-xpmeter-1 {
+    width: 200px;
+}
+
+.bar.uimod-xpmeter-3 {
+    background-color: rgba(45, 66, 71, 0.7);
+    border-radius: 1.5px;
+    position: relative;
+    color: #dae8ea;
+    overflow: hidden;
+    text-shadow: 1px 1px 2px #10131d;
+    white-space: nowrap;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.buttons.uimod-xpmeter-1 {
+    line-height: 1;
+    font-size: 13px;
+}
+
+.left.uimod-xpmeter-3 {
+    padding-left: 4px;
+    position: relative;
+    z-index: 1;
+}
+
+.right.uimod-xpmeter-3 {
+    position: absolute;
+    right: 7px;
+    z-index: 1;
+}
+/* Custom css for settings page, duplicates preexisting settings pane grid */
+.uimod-settings,
+.uimod-mod-toggler {
+    user-select: none;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-gap: 8px;
+    align-items: center;
+    max-height: 390px;
+    margin: 0 20px;
+    overflow-y: auto;
+}
+
+.uimod-mod-toggler-window {
+    max-height: 525px !important;
+}
+
+.uimod-mod-toggler {
+    grid-template-columns: 1fr 3fr 1fr 1.5fr;
+    grid-gap: 12px 6px;
+}
+.uimod-mod-toggler .uimod-mod-name {
+    font-weight: bold;
+    font-size: 16px;
+}
+.uimod-mod-toggler .uimod-mod-desc {
+    font-style: italic;
+}
+.uimod-mod-toggler .uimod-mod-state {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.uimod-disclaimer {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+/* This file is for CSS mods that don't fit in any other individual mod folder */
+/* Transparent chat bg color */
+.frame.svelte-1vrlsr3 {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Our mod's chat message color */
+.textuimod {
+    color: #00dd33;
+}
+
+/* The browser resize icon */
+*::-webkit-resizer {
+    background: linear-gradient(
+        to right,
+        rgba(51, 77, 80, 0),
+        rgba(203, 202, 165, 0.5)
+    );
+    border-radius: 8px;
+    box-shadow: 0 1px 1px black;
+}
+
+*::-moz-resizer {
+    background: linear-gradient(
+        to right,
+        rgba(51, 77, 80, 0),
+        rgba(203, 202, 165, 0.5)
+    );
+    border-radius: 8px;
+    box-shadow: 0 1px 1px black;
+}
+
+/* Our custom window, closely mirrors main settings window */
+.uimod-custom-window {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    min-width: 350px;
+    max-width: 600px;
+    width: 90%;
+    height: 80%;
+    min-height: 350px;
+    max-height: 500px;
+    z-index: 9;
+    padding: 0px 10px 5px;
+}

@@ -4,6 +4,7 @@ body {
     width: 100%;
     height: 100%;
     padding-inline-start: 0;
+    overflow: hidden;
 }
 
 .svg {
@@ -19,13 +20,17 @@ body {
     align-items: center;
 }
 
+#leftCol,
+#centerCol {
+    margin-right: 15px;
+}
+
 #bg {
     position: fixed;
     left: 0;
     right: 0;
     z-index: -1;
     display: block;
-    background: url("../images/background.jpg");
     transform: scale(1.1);
     background-color: black;
     filter: blur(5px);
@@ -44,9 +49,8 @@ body {
     left: 0;
     right: 0;
     z-index: 1;
-    animation: contentShow 1s 5s ease;
+    animation: contentShow 1s 5s forwards ease;
     height: 100vh;
-    animation-fill-mode: forwards;
     visibility: hidden;
 }
 
@@ -118,7 +122,7 @@ body {
 
 .bigButton {
     cursor: pointer;
-    width: 100%;
+    width: 100% !important;
     border-style: solid;
     border-width: 3px;
     background: rgb(25, 32, 45);
@@ -128,27 +132,101 @@ body {
         rgba(25, 32, 45, 0.2) 50%,
         rgba(25, 32, 45, 0.5) 100%
     );
-    border-color: #a8a8a8 #a8a8a8 transparent #a8a8a8;
+    border-color: #a8a8a8;
     border-radius: 6px 6px 0 0;
     border-bottom: none;
     background-color: transparent;
     font-family: "Quicksand", sans-serif;
     color: #a8a8a8;
     padding: 5px;
-    transition: .5s;
+    transition: 0.5s;
     font-size: 50pt;
 }
 
-.bigButton:focus{
+.bigButton:focus {
     outline: 0;
 }
 
-.bigButton:hover{
+.bigButton:hover {
     color: white;
-
     border-color: white white transparent white;
     padding-bottom: 30px;
+}
 
+.animMenu {
+    margin-top: calc(100vh - 97px);
+    width: 100%;
+    transition: 0.5s;
+}
+.animMenu.active {
+    margin-top: 0;
+}
+
+.infoMenu {
+    background: rgb(25, 32, 45);
+    background: linear-gradient(
+        90deg,
+        rgba(25, 32, 45, 0.5) 0%,
+        rgba(25, 32, 45, 0.2) 50%,
+        rgba(25, 32, 45, 0.5) 100%
+    );
+    height: calc(100vh - 97px);
+    border-color: transparent white;
+    border-width: 0 3px;
+    border-style: solid;
+    padding: 5px;
+    transition: 0.5s;
+}
+
+.infoMenu.inactive {
+    border-color: transparent #a8a8a8;
+}
+
+.menuButton {
+    margin-top: auto;
+}
+
+.menuButton.active {
+    margin-top: initial;
+    color: white;
+    border-color: white white transparent white;
+}
+
+.scrim {
+    position: absolute;
+    z-index: 9999;
+    background-color: #00000066;
+    backdrop-filter: blur(5px);
+    width: 100vw;
+    height: 100vh;
+    visibility: hidden;
+    animation: showDialog 0s 5s forwards;
+}
+
+.dialog {
+    position: absolute;
+    border-radius: 6px;
+    border: 2px solid white;
+    font-family: "Quicksand", sans-serif;
+    color: white;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 250px;
+}
+
+.dialogTitleWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid white;
+    font-size: 20px;
+    padding: 5px 8px;
+}
+
+.dialogMainText {
+    padding: 5px;
 }
 
 #logo {
@@ -156,8 +234,7 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    animation: logoAnim 5s ease;
-    animation-fill-mode: forwards;
+    animation: logoAnim 5s forwards ease;
     z-index: 999;
 }
 
@@ -167,9 +244,8 @@ body {
     top: 50%;
     left: 50%;
     z-index: 999;
-    animation: swordAnim 4s 1s;
+    animation: swordAnim 4s 1s forwards;
     visibility: hidden;
-    animation-fill-mode: forwards;
 }
 
 @keyframes logoAnim {
@@ -225,6 +301,12 @@ body {
     }
     to {
         opacity: 1;
+        visibility: visible;
+    }
+}
+
+@keyframes showDialog {
+    to {
         visibility: visible;
     }
 }
