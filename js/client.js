@@ -3839,8 +3839,6 @@
             return n;
         });
     var Na = (wa = wa);
-    window.Na = Na;
-
     const La = 2147483647;
     let Oa = 0;
     const qa = "utf8",
@@ -8905,7 +8903,7 @@
                     c && c.c(),
                     (s = E("h5")),
                     (i = C(o)),
-                    (n = C("\n  â€” 0.28.3520 Live")),
+                    (n = C("\n  — 0.28.3520 Live")),
                     U(s, "class", "version textgrey svelte-qe246z"),
                     U(e, "class", "l-ui container svelte-qe246z");
             },
@@ -9368,6 +9366,9 @@
     }
 
     const Ld = (t, e = "") => {
+        if(["partyleave","partycreate"].includes(t)){
+            window.partyLink = ""
+        }
             gd(tr.clientCommand.packData({ command: t, string: e + "" }));
         },
         Od = {
@@ -17459,7 +17460,6 @@
             partyleave: t => ({
                 name: Wh.ui.party.leave,
                 fun: () => {
-                    window.partyLink = ""
                     Ld("partyleave");
                 }
             }),
@@ -17502,7 +17502,6 @@
             partycreate: t => ({
                 name: Wh.ui.party.create,
                 fun: () => {
-                    window.partyLink = ""
                     Ld("partycreate");
                 }
             }),
@@ -26178,7 +26177,7 @@
                         (i = E("input")),
                         ((n = E("span")).textContent = "Lv."),
                         (r = E("input")),
-                        ((o = E("span")).textContent = "â€“"),
+                        ((o = E("span")).textContent = "–"),
                         (l = E("input")),
                         (c = E("span")),
                         (h = E("div")),
@@ -26577,7 +26576,7 @@
                 () => {
                     Ld("itemauctioncancel", C.temp.dbid + ""), _();
                 },
-                (t, e, s) => (t == e ? ("asc" == s ? "ðŸ • " : "ðŸ — ") : ""),
+                (t, e, s) => (t == e ? ("asc" == s ? "🠕 " : "🠗 ") : ""),
                 P,
                 p,
                 $,
@@ -30948,8 +30947,8 @@
             c,
             h,
             d,
-            u = e[21].online ? "â¬¤" : "",
-            m = e[21].owned ? "â­" : "",
+            u = e[21].online ? "⬤" : "",
+            m = e[21].owned ? "⭐" : "",
             p = Wh.ui.clan.roles[e[21].clanrole] + "";
         const f = new Kd({
             props: {
@@ -31008,10 +31007,10 @@
                     1 & i && (n.faction = e[0].faction),
                     f.$set(n),
                     (!h || 1 & i) &&
-                        u !== (u = e[21].online ? "â¬¤" : "") &&
+                        u !== (u = e[21].online ? "⬤" : "") &&
                         z(a, u),
                     (!h || 1 & i) &&
-                        m !== (m = e[21].owned ? "â­" : "") &&
+                        m !== (m = e[21].owned ? "⭐" : "") &&
                         z(r, m),
                     (!h || 1 & i) &&
                         p !== (p = Wh.ui.clan.roles[e[21].clanrole] + "") &&
@@ -34390,7 +34389,7 @@
                 n,
                 3 === s,
                 n || 3 !== s,
-                0 === s ? "Miss" : e + (1 === s ? "ðŸ›¡ï¸" : ""),
+                0 === s ? "Miss" : e + (1 === s ? "🛡️" : ""),
                 n ? mM.pdmg : 1 === i ? mM.spell : mM.phys,
                 3.5,
                 -0.3
