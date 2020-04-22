@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head> 
+    <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Hordes</title>
         <link rel="stylesheet" href="../css/style.css" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
-            rel="stylesheet"
-        />
         <meta
             http-equiv="Content-Security-Policy"
             content="script-src 'self';"
@@ -19,12 +15,21 @@
         <div id="bg"></div>
         <div id="content">
             <div id="leftCol">
-                <div class="animMenu">
-                    <button class="bigButton menuButton">
+                <div class="animMenu" id= "moreMenu">
+                    <button class="bigButton menuButton" id="more">
                         More
                     </button>
                     <div class="infoMenu">
-                        <a href="https://hordes.io/worldeditor" style="font-size:30pt; justify-self:center; display: flex;"><img src="../images/ui/mountain.svg" alt="" height="50px"> World Editor</a>
+                        <a
+                            href="https://hordes.io/worldeditor"
+                            class="menuHeader"
+                        >
+                            <img
+                                src="../images/ui/mountain.svg"
+                                alt=""
+                                height="50px"
+                            />World Editor</a
+                        >
                     </div>
                 </div>
             </div>
@@ -37,12 +42,12 @@
                 </div>
             </div>
             <div id="rightCol">
-                <div class="animMenu">
-                    <button class="bigButton menuButton">
+                <div class="animMenu" id="socialMenu">
+                    <button class="bigButton menuButton" id="social">
                         Social
                     </button>
                     <div class="infoMenu"></div>
-                </div> 
+                </div>
             </div>
         </div>
 

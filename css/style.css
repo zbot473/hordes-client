@@ -1,3 +1,12 @@
+@font-face {
+    font-family: "Quicksand";
+    src: url(../font/Quicksand-VariableFont_wght.ttf);
+}
+
+* {
+    font-family: "Quicksand";
+}
+
 html,
 body {
     margin: 0;
@@ -46,7 +55,6 @@ a {
 
 #content {
     position: fixed;
-    font-family: "Quicksand", sans-serif;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -55,7 +63,7 @@ a {
     z-index: 1;
     animation: contentShow 1s 5s forwards ease;
     height: 100vh;
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 
 #playerList {
@@ -140,7 +148,6 @@ a {
     border-radius: 6px 6px 0 0;
     border-bottom: none;
     background-color: transparent;
-    font-family: "Quicksand", sans-serif;
     color: #a8a8a8;
     padding: 5px;
     transition: 0.5s;
@@ -181,7 +188,6 @@ a {
     padding: 8px;
     transition: 0.5s;
     display: flex;
-
 }
 
 .infoMenu.inactive {
@@ -205,7 +211,7 @@ a {
     backdrop-filter: blur(5px);
     width: 100vw;
     height: 100vh;
-    /* visibility: hidden; */
+    visibility: hidden;
     animation: showDialog 0s 5s forwards;
 }
 
@@ -213,7 +219,6 @@ a {
     position: absolute;
     border-radius: 6px;
     border: 2px solid white;
-    font-family: "Quicksand", sans-serif;
     color: white;
     transform: translate(-50%, -50%);
     top: 50%;
@@ -251,10 +256,10 @@ a {
     left: 50%;
     z-index: 999;
     animation: swordAnim 4s 1s forwards;
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 
-/* @keyframes logoAnim {
+@keyframes logoAnim {
     0% {
         transform: translate(-50%, -50%) scale(0.7);
         opacity: 0;
@@ -315,4 +320,4 @@ a {
     to {
         visibility: visible;
     }
-} */
+}

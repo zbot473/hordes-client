@@ -1,4 +1,5 @@
 const { ipcRenderer } = require("electron");
+console.log("hi")
 ipcRenderer.send("requestPlayerData");
 document.getElementById(
     "bg"
@@ -10,6 +11,8 @@ ipcRenderer.on("error", (e, m) => {
     switch (m) {
         case "loggedOut":
             var btn = document.getElementById("play");
+            document.getElementById("socialMenu").style.visibility = "hidden"
+            document.getElementById("moreMenu").style.visibility = "hidden"
             btn.innerHTML = "Login";
             btn.addEventListener("click", () => {
                 ipcRenderer.send("loginRequest");
