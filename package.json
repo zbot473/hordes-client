@@ -20,7 +20,7 @@
     },
     "dependencies": {
         "discord-rpc": "^3.1.0",
-        "minimist": ">=1.2.5",
+        "minimist": ">=1.2.6",
         "electron-updater": "^4.2.5"
     },
     "scripts": {
